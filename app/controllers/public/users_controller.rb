@@ -1,4 +1,9 @@
 class Public::UsersController < ApplicationController
+  before_action :setup, except: :new
+  def setup
+    @user = User.find(session[:user])
+  end
+  
   def index
   end
 
