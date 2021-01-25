@@ -12,12 +12,14 @@
     
     <div class="collapse navbar-collapse" id="navbar-content">
       <ul class="nav navbar-nav">
-        <% if true %>
-          <%= link_to "Home", root_path %>
-          <%= link_to "About", about_path %>
-          <li>LOG IN</li>
-          <li>SIGN IN</li>
+        <% if session[:user] %>
+          <li><%= link_to "Home", user_path(session[:user]) %></li>
+          <li><%= link_to "LOG OUT", session_path, method: :delete, data: { confirm: "本当にログアウトしますか？"} %></li>
         <% else %>
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "LOG IN", new_session_path %></li>
+          <li><%= link_to "SIGN IN", new_user_path %></li>
         <% end %>
       </ul>
       <p class="navbar-text navbar-right padding-right-lg">Welcome!</p>
