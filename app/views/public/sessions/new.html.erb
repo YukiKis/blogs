@@ -1,2 +1,15 @@
-<h1>Public::Sessions#new</h1>
-<p>Find me in app/views/public/sessions/new.html.erb</p>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <%= form_tag({ action: :create }) do %>
+          <div class="form-group form-inline">
+            <%= label_tag :name %><%= text_field_tag :name %><br>
+            <%= label_tag :password %><%= password_field_tag :password %><br>
+          </div>
+          <%= submit_tag "ログイン", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
