@@ -2,6 +2,18 @@ require "rails_helper"
 
 RSpec.describe "UsersController", type: :system do
   let(:user1){ create(:user1) }
+  context "on index" do
+    before do
+      visit users_path
+    end
+    it "has users_list" do
+      User.all.each do |user|
+        expect(page).to have_content user.name
+        expect(page).to have_link "詳しく見る", user_path(user)
+      end
+    end
+  end
+  
   context "on new" do
     before do
       visit new_user_path
@@ -37,6 +49,7 @@ RSpec.describe "UsersController", type: :system do
       expect(page).to have_content "エラーが発生しました"
     end
   end
+  
   context "on show" do
     before do
       login_user(user1)
@@ -58,6 +71,7 @@ RSpec.describe "UsersController", type: :system do
       end
     end
   end
+  
   context "on edit" do
     before do
       login_user(user1)
