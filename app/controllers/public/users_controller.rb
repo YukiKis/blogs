@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :setup, except: :new
+  
   def setup
     @user = User.find(session[:user])
   end
@@ -26,6 +27,15 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+  end
+  
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user), notice: "更新に成功しました"
+    else
+      flash.now[:notice] = "エラー"
+      render :edit
+    end
   end
   
   private
