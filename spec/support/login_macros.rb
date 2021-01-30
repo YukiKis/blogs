@@ -1,9 +1,9 @@
 module LoginMacros
   def login_user(user)
     visit new_session_path
-    fill_in "user[name]", with: user.name
-    fill_in "user[password]", with: user.password
-    click_button "LOG IN"
+    fill_in "name", with: user.name
+    fill_in "password", with: user.password
+    click_button "ログイン"
   end
   
   def logout_user

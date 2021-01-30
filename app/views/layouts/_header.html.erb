@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav">
         <% if session[:user] %>
           <li><%= link_to "Home", user_path(session[:user]) %></li>
+          <li><%= link_to "User", users_path %></li>
           <li><%= link_to "LOG OUT", session_path, method: :delete, data: { confirm: "本当にログアウトしますか？"} %></li>
         <% else %>
           <li><%= link_to "Home", root_path %></li>

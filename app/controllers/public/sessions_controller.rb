@@ -7,7 +7,7 @@ class Public::SessionsController < ApplicationController
   
   def create
     if session[:user]
-      redirect_to user_path, notice: "既にログインしています。"
+      redirect_to user_path(session[:user]), notice: "既にログインしています。"
     else
       user = User.find_by(name: params[:name])
       if user && user.authenticate(params[:password])
