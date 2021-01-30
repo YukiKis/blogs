@@ -23,6 +23,15 @@ RSpec.describe "Header", type: :system do
     before do
       login_user(user1)
     end
+    it "has link to own page" do
+      expect(page).to have_link "HOME", user_path(user1)
+    end
+    it "has link to users index" do
+      expect(page).to have_link "USERS", users_path
+    end
+    it "has link to homepages index" do
+      expect(page).to have_link "HOMEPAGES", homepages_path
+    end
     it "has link to logout" do
       expect(page).to have_link "LOG OUT", href: session_path
     end
