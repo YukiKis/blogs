@@ -3,5 +3,5 @@ class Homepage < ApplicationRecord
   has_many :articles
   
   validates :agreement, acceptance: { on: :create }
-  validates :tilte, presence: true
+  validates :tilte, length: { in: 2..50 }
 end
