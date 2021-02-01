@@ -1,2 +1,23 @@
-<h1>Public::Homepages#index</h1>
-<p>Find me in app/views/public/homepages/index.html.erb</p>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= render "layouts/userinfo", user: @user %>
+      </div>
+      <div class="col-sm-9">
+        <h2>ホームページリスト</h2>
+        <% if @homepages.present? %>
+          <% @homepages.each do |homepage| %>
+            <section class="homepage-list">
+              <h4><%= hompepage.title %></h4>
+              <div class="homepage-image"></div>
+              <p>
+                <%= homepage.articles.size %>
+              </p>
+            </section>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

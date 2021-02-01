@@ -7,6 +7,9 @@ RSpec.describe Homepage, type: :model do
     it "belongs_to user" do
       expect(Homepage.reflect_on_association(:user).macro).to eq :belongs_to
     end
+    it "has many articles" do
+      expect(Homepage.reflect_on_association(:articles).macro).to eq :has_many
+    end
     it "is valid" do
       expect(homepage).to be_valid
     end
