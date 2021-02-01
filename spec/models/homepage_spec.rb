@@ -18,5 +18,4 @@ RSpec.describe Homepage, type: :model do
       expect(homepage).to be_invalid
     end
   end
-    
 end
