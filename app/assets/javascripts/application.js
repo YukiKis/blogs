@@ -16,3 +16,14 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on("turbolinks:load", function(){
+    $("#user_form").validate({
+        rules: {
+            "user[name]": {
+                required: true,
+                rangelength: [2, 20]
+            }
+        }
+    })
+})
