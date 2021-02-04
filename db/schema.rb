@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_131912) do
+ActiveRecord::Schema.define(version: 2021_02_04_134608) do
 
   create_table "articles", force: :cascade do |t|
-    t.integer "homepage_id_id"
+    t.integer "homepage_id"
     t.string "title", null: false
     t.text "content", null: false
+    t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["homepage_id_id"], name: "index_articles_on_homepage_id_id"
+    t.index ["homepage_id"], name: "index_articles_on_homepage_id"
   end
 
   create_table "homepages", force: :cascade do |t|
