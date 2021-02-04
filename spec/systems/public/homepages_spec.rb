@@ -35,6 +35,15 @@ RSpec.describe "HomepagesController", type: :system do
     it "is the right URL" do
       expect(current_path).to eq homepage_path(homepage1)
     end
+    it "has title" do
+      expect(page).to have_content homepage1.tilte
+    end
+    it "has content of the latest article" do
+      expect(page).to have_content homepage1.articles.first
+    end
+    it "has link to new article" do
+      expect(page).to have_link "記事を追加する", href: new_homepage_article_path(homepage1)
+    end
   end
   
   context "on new" do
