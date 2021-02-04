@@ -1,8 +1,10 @@
 module LoginMacros
   def login_user(user)
+    reset_session!
     visit new_session_path
-    fill_in "name", with: user.name
-    fill_in "password", with: user.password
+    expect(current_path).to eq new_session_path
+    fill_in "名前", with: user.name
+    fill_in "パスワード", with: user.password
     click_button "ログイン"
   end
   

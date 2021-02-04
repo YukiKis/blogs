@@ -26,4 +26,15 @@ $(document).on("turbolinks:load", function(){
             }
         }
     })
+    $("#homepage_form").validate({
+        rules: {
+            "homepage[title]": { 
+                required: true,
+                rangelength: [2, 50]
+            },
+            "homepage[agreement]": { 
+                required: true
+            }
+        }
+    })
 })

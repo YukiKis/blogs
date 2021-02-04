@@ -2,6 +2,9 @@ require "rails_helper"
 
 RSpec.describe "UsersController", type: :system do
   let(:user1){ create(:user1) }
+  before do
+    login_user(user1)
+  end
   context "on index" do
     before do
       visit users_path

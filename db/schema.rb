@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_141708) do
+ActiveRecord::Schema.define(version: 2021_02_01_131912) do
+
+  create_table "articles", force: :cascade do |t|
+    t.integer "homepage_id_id"
+    t.string "title", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["homepage_id_id"], name: "index_articles_on_homepage_id_id"
+  end
+
+  create_table "homepages", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title", null: false
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "articles_count", default: 0
+    t.index ["user_id"], name: "index_homepages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
