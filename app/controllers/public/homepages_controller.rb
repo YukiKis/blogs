@@ -10,6 +10,8 @@ class Public::HomepagesController < ApplicationController
   end
 
   def show
+    @homepage = Homepage.find(params[:id])
+    @article = @homepage.articles.first
   end
 
   def new
@@ -34,6 +36,6 @@ class Public::HomepagesController < ApplicationController
   
   private
     def homepage_params
-      params.require(:homepage).permit(:title, :introduction, :agreemrnt) 
+      params.require(:homepage).permit(:title, :introduction, :agreement) 
     end
 end
