@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe "ArticleHomepage", type: :system do
   let(:user1){ create(:user1) }
   let(:homepage1){ create(:homepage1, user: user1) }
+  let(:article1){ create(:article1) }
   before do
     login_user(user1)
   end
@@ -15,7 +16,7 @@ RSpec.describe "ArticleHomepage", type: :system do
   
   context "on new" do
     before do
-      visit new_homepage_article_path()
+      visit new_homepage_article_path(homepage1)
     end
     it "has title form" do
       expect(page).to have_field "article[title]"
@@ -43,5 +44,32 @@ RSpec.describe "ArticleHomepage", type: :system do
   end
   
   context "on edit" do
+    before do
+      visit edit_article_path(article1)
+    end
+    it "has title field" do
+      expect(page).to have_field "article[title]", with: article1.title
+    end
+    it "has content field" do
+      expect(page).to have_field "article[content]", with: article1.content
+    end
+    it "has tag field" do
+      expect(page).to have_field "article[tag]", with: article1.tag
+    end
+    it "has button to submit" do
+      expect(page).to have_button "更新"
+    end
+    it "succeeds to update" do
+      fill_in "article[title]", with: "例れいれいれいれい例"
+      fill_in "article[content]", with: "例例例例れい"
+      fill_in "article[tag]", with: "例, eg"
+      click_button "更新"
+      expect(page).to have_content "更新出来ました"
+    end
+    it "fails to update" do
+      fill_in "article[title]", with: ""
+      click_button "更新"
+      expect(page).to have_content "エラー"
+    end
   end
 end
