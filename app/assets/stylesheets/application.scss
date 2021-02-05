@@ -38,3 +38,12 @@
 .margin-bottom-lg{
   margin-bottom: 45px;
 }
+
+.homepage-title{
+  transition: 3s;
+  &:hover{
+    color: red;
+    transform: translateX(100px);
+    font-size: 30px;
+  }
+}

@@ -37,4 +37,22 @@ $(document).on("turbolinks:load", function(){
             }
         }
     })
+    
+    $(".article-title").hide().fadeIn();
+    $(".article-content").hide().slideDown();
+    
+    // $(".homepage-title").on({
+    //     "mouseenter": function(){
+    //         $(this).addClass("relative")
+    //         $(this).stop().animate({
+    //             fontSize: "20px",
+    //         }, 300);
+    //     }, 
+    //     "mouseleave": function(){
+    //         $(this).stop().animate({
+    //             fontSize: "30px",
+    //         }, 300);
+    //         $(this).removeClass("relative");
+    //     }
+    // });
 })

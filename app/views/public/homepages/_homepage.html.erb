@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-9">
         <section class="main">
-          <h2 class="text-center"><%= homepage.title %></h2>
+          <h2 class="text-center homepage-title"><%= homepage.title %></h2>
           <% if article.present? %>
             <%= render "public/articles/article", article: article %>
           <% else %>
