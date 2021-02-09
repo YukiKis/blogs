@@ -59,6 +59,9 @@ RSpec.describe "ArticleHomepage", type: :system do
     it "has button to submit" do
       expect(page).to have_button "更新"
     end
+    it "has link to delete" do
+      expect(page).to have_link "削除", href: article_path(article1)
+    end
     it "succeeds to update" do
       fill_in "article[title]", with: "例れいれいれいれい例"
       fill_in "article[content]", with: "例例例例れい"

@@ -1,3 +1,27 @@
-            <h4><%= article.title %></h4>
-            <p><%= article.content %></p>
-            <p><%= article.created_at.strftime("%Y/%m/%d %H:%M:%S") %></p>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h2>記事作成</h2>
+        <%= form_with model: @article, url: homepage_articles_path(@homepage, @article), local: true do |f| %>
+          <%= render "layouts/error", resource: @article %>
+          <div class="form-group form-inline">
+            <%= f.label :title, "タイトル", class: "control-label" %><br>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :content, "本文", class: "control-label" %><br>
+            <%= f.text_area :content, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :tag, "タグ(','で区切る)", class: "control-label" %><br>
+            <%= f.text_field :tag, class: "form-control" %>
+          </div>
+          <div class="submit-btn">
+            <%= f.submit "作成", class: "btn btn-primary" %>&emsp;
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

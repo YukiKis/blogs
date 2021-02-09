@@ -1,3 +1,4 @@
+<section class="article-box">
 <h3 class="margin-bottom-sm article-title"><%= article.title %></h3>
 <p>
   <% article.tag.split(",").each do |tag| %>
@@ -11,3 +12,4 @@
     <%= link_to "編集する", edit_article_path(article) %>
   <% end %>
 </p>
+</section>

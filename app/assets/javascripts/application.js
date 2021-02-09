@@ -40,7 +40,13 @@ $(document).on("turbolinks:load", function(){
     
     $(".article-title").hide().fadeIn();
     $(".article-content").hide().slideDown();
+    $(".homepage-list").hide().fadeIn(3000);
     
+    $(".article-box").hover(function(){
+        $(this).stop().animate({"background-color": "yellow" }, 1000).css("border", "3px solid black")
+    }, function(){
+        $(this).css("border", "").stop().animate({"background-color": ""}, 1000)
+    })
     // $(".homepage-title").on({
     //     "mouseenter": function(){
     //         $(this).addClass("relative")
