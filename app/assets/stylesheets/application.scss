@@ -26,3 +26,34 @@
 .padding-right-lg{
   padding-right: 50px;
 }
+
+.margin-bottom-sm{
+  margin-bottom: 15px;
+}
+
+.margin-bottom-md{
+  margin-bottom: 30px;
+}
+
+.margin-bottom-lg{
+  margin-bottom: 45px;
+}
+
+.homepage-title{
+  transition: 3s;
+  &:hover{
+    color: red;
+    transform: translateX(100px);
+    font-size: 30px;
+  }
+}
+
+.article-box{
+  border-radius: 3px;
+  padding: 5px 15px;
+}
+
+.article-list{
+  background-color: yellow;
+  padding: 5px;
+}

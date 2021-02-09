@@ -37,4 +37,28 @@ $(document).on("turbolinks:load", function(){
             }
         }
     })
+    
+    $(".article-title").hide().fadeIn();
+    $(".article-content").hide().slideDown();
+    $(".homepage-list").hide().fadeIn(3000);
+    
+
+        $(this).stop().animate({"background-color": "rgba(120, 30, 30, 0.3)" }, 1000)
+    }, function(){
+        $(this).stop().animate({"background-color": ""}, 1000)
+    })
+    // $(".homepage-title").on({
+    //     "mouseenter": function(){
+    //         $(this).addClass("relative")
+    //         $(this).stop().animate({
+    //             fontSize: "20px",
+    //         }, 300);
+    //     }, 
+    //     "mouseleave": function(){
+    //         $(this).stop().animate({
+    //             fontSize: "30px",
+    //         }, 300);
+    //         $(this).removeClass("relative");
+    //     }
+    // });
 })
