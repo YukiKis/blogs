@@ -1,12 +1,13 @@
 class Public::ArticlesController < ApplicationController
   before_action :setup_hp, only: [:index, :new, :create]
 
-  # def index
-  #   @articles = @homepage.articles.all
-  # end
+  def index
+     @articles = @homepage.articles.all
+  end
 
   def show
     @article = Article.find(params[:id])
+    @homepage = @article.homepage
     @user = @article.homepage.user
   end
 

@@ -15,9 +15,12 @@
         <section class="sidebar">
           <div class="text-center">
             <%= link_to "記事を追加する", new_homepage_article_path(homepage), class: "btn btn-primary" %>
-            <div class="aritlce-list">
-              <% homepage.articles.order("created_at DESC").take(5).each do |article| %>
+            <div class="article-list">
+              <% homepage.articles.order("created_at DESC")[0..5].each do |article| %>
                 <%= link_to "#{ article.title } #{ article.created_at.strftime("%Y/%m/%d") }", article_path(article) %><br>
+              <% end %>
+              <% if homepage.articles.count > 5 %>
+                <%= link_to "See more", homepage_articles_path(@homepage) %>
               <% end %>
             </div>
           </div>

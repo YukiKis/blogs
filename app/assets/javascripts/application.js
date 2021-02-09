@@ -42,10 +42,10 @@ $(document).on("turbolinks:load", function(){
     $(".article-content").hide().slideDown();
     $(".homepage-list").hide().fadeIn(3000);
     
-    $(".article-box").hover(function(){
-        $(this).stop().animate({"background-color": "yellow" }, 1000).css("border", "3px solid black")
+
+        $(this).stop().animate({"background-color": "rgba(120, 30, 30, 0.3)" }, 1000)
     }, function(){
-        $(this).css("border", "").stop().animate({"background-color": ""}, 1000)
+        $(this).stop().animate({"background-color": ""}, 1000)
     })
     // $(".homepage-title").on({
     //     "mouseenter": function(){
